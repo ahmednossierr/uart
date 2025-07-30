@@ -204,25 +204,25 @@ module uart_tb;
         rst = 0;
         #100;
 
-        tx_input = 8'hAA;
+        tx_input = 8'hAB;
         tx_trigger = 1;
         #20;
         tx_trigger = 0;
         wait(tx_status == 0);
         wait(rx_complete);
-        if (rx_output == 8'hAA && !rx_error) $display("AA worked fine");
-        else $display("AA messed up");
+        if (rx_output == 8'hAB && !rx_error) $display("AB worked fine");
+        else $display("AB messed up");
 
         #100;
 
-        tx_input = 8'h55;
+        tx_input = 8'h46;
         tx_trigger = 1;
         #20;
         tx_trigger = 0;
         wait(tx_status == 0);
         wait(rx_complete);
-        if (rx_output == 8'h55 && !rx_error) $display("55 worked fine");
-        else $display("55 messed up");
+        if (rx_output == 8'h46 && !rx_error) $display("46 worked fine");
+        else $display("46 messed up");
 
         #100;
         $finish;
